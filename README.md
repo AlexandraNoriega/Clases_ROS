@@ -23,6 +23,7 @@ $ rosrun project_ros_nodes _.py
 **Arduino como Nodo ROS**
 
 <https://youtu.be/MOBSb6cA7kY> Hasta el 6:11 donde el dentro del IDE del arduino encuentra el ejemplo de Hello World de la librería ros_lib
+
 <https://youtu.be/lkyUqMVJBQ0> Este tutorial se encargará de subir el programa al arduino y correrlo como nodo de ROS
 
 **Nota**
