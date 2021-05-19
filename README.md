@@ -13,6 +13,8 @@ Los nodos E, F y G recibiran estas pertenencias y seleccionará el porcentaje m�
 
 Finalmente en el nodo H, le llega esta clasificación de las variables y se realiza un árbol de decisión basado en porcentajes para decidir el valor PWM para el led en el circuito, este árbol le da un porcentaje de 50% al bool, 40% al int y 10% al float.Internamente el bool de A a B maneja pocentajes: para bool [0 1], int [1 0.6 0.2] y float [1 0.5 0]. En el nodo del arduino recibirá este valor que va de 1-18 y lo multiplocará por (255/18) con el fin de que quede escalado hasta 255.
 
+![alt text](DecisionTree.png)
+
 Para ejecutar los nodos creados
 
 ``` 
