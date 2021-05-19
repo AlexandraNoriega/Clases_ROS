@@ -7,7 +7,7 @@ El nodo A (Talker.py) se encargará de escuchar los datos que envíe el Arduino 
 
 Los nodos B, C y D reciben estos datos enviados y a partir de los valores se buca mediante lógica fuzzy dar la pertenecia a los conjuntos ALTO/MEDIO/BAJO.
 
-![alt text](/home/amy/Imágenes/pertenencia.png) "Pertenencia"
+![alt text](Pertenencia.png)
 
 Los nodos E, F y G recibiran estas pertenencias y seleccionará el porcentaje más alto de pertenencia como el conjunto al que pertenencen las variables enviadas por el nodo A, se envía un string de un caracter con la inicial del conjunto ( A, M O B). 
 
