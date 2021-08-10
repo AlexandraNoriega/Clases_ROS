@@ -9,7 +9,7 @@ Nodes B, C and D receive this data sent and from the values it is searched by me
 
 ![alt text](Pertenencia.png)
 
-The nodes E, F and G will receive these memberships and will select the highest percentage of membership as the set to which the variables sent by node A belong, a string of one character is sent with the initial of the set ( A, M O B). 
+The nodes E, F and G will receive these memberships and will select the highest percentage of membership as the set to which the variables sent by node A belong, a string of one character is sent with the initial of the set ( A, M or B). 
 
 Finally in node H, this classification of the variables arrives and a decision tree based on percentages is made to decide the PWM value for the led in the circuit, this tree gives a percentage of 50% to the bool, 40% to the int and 10% to float Internally the bool from A to B handles percentages: for bool [0 1], int [1 0.6 0.2] and float [1 0.5 0]. In the arduino node it will receive this value that goes from 1-18 and it will multiply it by (255/18) so that it is scaled up to 255.
 
