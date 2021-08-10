@@ -3,39 +3,39 @@
 Proyecto Nodos ROS
 =============
 
-El nodo A (Talker.py) se encargará de escuchar los datos que envíe el Arduino que toma datos del circuito implementado con Fotoresistencia para el valor entero, button para el booleano y como salida un led al que se le envía PWM.
+Node A (Talker.py) will listen to the data sent by the Arduino, which takes data from the circuit implemented with Photoresistor for the integer value, button for the Boolean and as an output a led to which PWM is sent.
 
-Los nodos B, C y D reciben estos datos enviados y a partir de los valores se buca mediante lógica fuzzy dar la pertenecia a los conjuntos ALTO/MEDIO/BAJO.
+Nodes B, C and D receive this data sent and from the values it is searched by means of fuzzy logic to give the belonging to the ALTO/MEDIO/BAJO sets.
 
 ![alt text](Pertenencia.png)
 
-Los nodos E, F y G recibiran estas pertenencias y seleccionará el porcentaje más alto de pertenencia como el conjunto al que pertenencen las variables enviadas por el nodo A, se envía un string de un caracter con la inicial del conjunto ( A, M O B). 
+The nodes E, F and G will receive these memberships and will select the highest percentage of membership as the set to which the variables sent by node A belong, a string of one character is sent with the initial of the set ( A, M O B). 
 
-Finalmente en el nodo H, le llega esta clasificación de las variables y se realiza un árbol de decisión basado en porcentajes para decidir el valor PWM para el led en el circuito, este árbol le da un porcentaje de 50% al bool, 40% al int y 10% al float.Internamente el bool de A a B maneja pocentajes: para bool [0 1], int [1 0.6 0.2] y float [1 0.5 0]. En el nodo del arduino recibirá este valor que va de 1-18 y lo multiplocará por (255/18) con el fin de que quede escalado hasta 255.
+Finally in node H, this classification of the variables arrives and a decision tree based on percentages is made to decide the PWM value for the led in the circuit, this tree gives a percentage of 50% to the bool, 40% to the int and 10% to float Internally the bool from A to B handles percentages: for bool [0 1], int [1 0.6 0.2] and float [1 0.5 0]. In the arduino node it will receive this value that goes from 1-18 and it will multiply it by (255/18) so that it is scaled up to 255.
 
 ![alt text](DecisionTree.png)
 
-Para ejecutar los nodos creados
+Execution created node
 
 ``` 
 $ roscore
 $ rosrun project_ros_nodes _.py
 ```
 
-**Arduino como Nodo ROS**
+**Arduino as ROS Node**
 
-<https://youtu.be/MOBSb6cA7kY> Hasta el 6:11 donde el dentro del IDE del arduino encuentra el ejemplo de Hello World de la librería ros_lib
+<https://youtu.be/MOBSb6cA7kY> Until 6:11 where the inside of the arduino IDE finds the Hello World example from the ros_lib library
 
-<https://youtu.be/lkyUqMVJBQ0> Este tutorial se encargará de subir el programa al arduino y correrlo como nodo de ROS
+<https://youtu.be/lkyUqMVJBQ0> This tutorial will be in charge of uploading the program to the arduino and running it as a ROS node
 
-**Nota**
+**Note**
 
-Cada que se corre el nodo de Arduino es necesario darle los permisos al puerto 
+Every time the Arduino node is run, it is necessary to give the permissions to the port
 
 ``` 
 sudo chmod 777 /dev/ttyUSB
 ```
-Para correr el archivo de Arduino como nodo ros ejecutamos la siguiente línea
+To run the Arduino file as a ros node we execute the following line
 
 ``` 
 rosrun rosserial_python serial_node.py /dev/ttyUSB0
